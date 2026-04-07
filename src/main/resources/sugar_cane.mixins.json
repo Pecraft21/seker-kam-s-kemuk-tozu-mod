@@ -1,0 +1,7 @@
+{
+  "package": "com.mahmut.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [ "SugarCaneMixin" ],
+  "injectors": { "defaultRequire": 1 }
+}
+
