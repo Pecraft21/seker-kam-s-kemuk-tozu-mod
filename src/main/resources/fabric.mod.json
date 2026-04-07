@@ -1,19 +1,23 @@
 {
   "schemaVersion": 1,
-  "id": "sugar_cane_fix",
+  "id": "seker_kami_mod",
   "version": "1.0.0",
   "name": "Sugar Cane Growth",
-  "description": "Şeker kamışını kemik tozuyla anında büyütür.",
-  "authors": ["Mahmut Pektas"],
+  "description": "Seker kamisina kemik tozu modu",
+  "authors": [
+    "Mahmut"
+  ],
   "contact": {},
   "license": "MIT",
   "environment": "*",
-  "entrypoints": { "main": [] },
-  "mixins": [ "sugar_cane.mixins.json" ],
+  "entrypoints": {},
+  "mixins": [
+    "seker-kam-s-kemuk-tozu-mod.mixins.json"
+  ],
   "depends": {
-    "fabricloader": ">=0.18.4",
-    "minecraft": "1.21.1",
-    "java": "21"
+    "fabricloader": ">=0.16.0",
+    "minecraft": ">=1.21",
+    "java": ">=21"
   }
 }
 
