@@ -10,28 +10,32 @@ import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(SugarCaneBlock.class)
 public abstract class SugarCaneMixin extends Block implements Fertilizable {
-    public SugarCaneMixin(Settings settings) { super(settings); }
-
-    @Override
-    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
-        BlockPos root = pos;
-        while (world.getBlockState(root.down()).isOf(Blocks.SUGAR_CANE)) root = root.down();
-        int h = 0;
-        while (world.getBlockState(root.up(h)).isOf(Blocks.SUGAR_CANE)) h++;
-        return h < 3;
+    public SugarCaneMixin(Settings settings) {
+        super(settings);
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) { return true; }
+    public boolean isFertilizable(WorldView world, BlockPos pos, BlockState state) {
+        return true;
+    }
+
+    @Override
+    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+        return true;
+    }
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
         BlockPos root = pos;
-        while (world.getBlockState(root.down()).isOf(Blocks.SUGAR_CANE)) root = root.down();
-        for (int i = 0; i < 3; i++) {
-            BlockPos p = root.up(i);
-            if (world.getBlockState(p).isAir()) world.setBlockState(p, Blocks.SUGAR_CANE.getDefaultState());
+        while (world.getBlockState(root.down()).isOf(Blocks.SUGAR_CANE)) {
+            root = root.down();
+        }
+        
+        for (int i = 1; i < 3; i++) {
+            BlockPos target = root.up(i);
+            if (world.getBlockState(target).isAir()) {
+                world.setBlockState(target, Blocks.SUGAR_CANE.getDefaultState());
+            }
         }
     }
 }
-
