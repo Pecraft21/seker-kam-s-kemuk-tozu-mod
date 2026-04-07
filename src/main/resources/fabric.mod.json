@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "sugar_cane_fix",
+  "version": "1.0.0",
+  "name": "Sugar Cane Growth",
+  "description": "Şeker kamışını kemik tozuyla anında büyütür.",
+  "authors": ["Mahmut Pektas"],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": { "main": [] },
+  "mixins": [ "sugar_cane.mixins.json" ],
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "1.21.1",
+    "java": "21"
+  }
+}
+
